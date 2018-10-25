@@ -57,13 +57,22 @@ namespace GameListWPF
 
         private void Co_Button_Connexion_Click(object sender, RoutedEventArgs e)
         {
-            if (!(string.IsNullOrEmpty(Co_TextBox_InputLogin.Name))&& !(string.IsNullOrEmpty(Co_TextBox_InputMdp.Name)))
+            if ( ! ( (string.IsNullOrEmpty(Co_TextBox_InputLogin.Name)) && (string.IsNullOrEmpty(Co_TextBox_InputMdp.Name)) ) )
             {
-                Console.WriteLine("Vous êtes connecté");
+                if(Verif(listUsers, Co_TextBox_InputLogin.Name, Co_TextBox_InputMdp.Name) != -1)
+                {
+                    Console.WriteLine("Vous êtes connecté");
+                    Console.WriteLine(Verif(listUsers, Co_TextBox_InputLogin.Name, Co_TextBox_InputMdp.Name));
+                }
+                else
+                {
+                    Console.WriteLine("Erreur de connection");
+                }
+                
             }
             else
             {
-                Console.WriteLine("Problème de deconnection");
+                Console.WriteLine("Veuillez entrez vos identifiants");
             }
                 
         }
@@ -71,27 +80,6 @@ namespace GameListWPF
         private void Co_TextBox_InputLogin_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-<<<<<<< HEAD
-        public void Load_Form1()
-        {
-            RemplirListUser();
-        }
-
-        private void Co_Button_Connexion_Click(object sender, RoutedEventArgs e)
-        {
-            Console.WriteLine("click sur connexion");
-        }
-
-        private void Co_Button_Inscription_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Co_TextBox_InputLogin_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-=======
->>>>>>> 35800466fe56a35667c3fd35e7ab363d37f1e969
         }
 
         private void Co_TextBox_InputMdp_TextChanged(object sender, TextChangedEventArgs e)
