@@ -45,7 +45,37 @@ namespace GameListWPF
         {
             InitializeComponent();
         }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            RemplirListUser();
+        }
 
-    
+        private void Co_Button_Inscription_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Co_Button_Connexion_Click(object sender, RoutedEventArgs e)
+        {
+            if (!(string.IsNullOrEmpty(Co_TextBox_InputLogin.Name))&& !(string.IsNullOrEmpty(Co_TextBox_InputMdp.Name)))
+            {
+                Console.WriteLine("Vous êtes connecté");
+            }
+            else
+            {
+                Console.WriteLine("Problème de deconnection");
+            }
+                
+        }
+
+        private void Co_TextBox_InputLogin_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Co_TextBox_InputMdp_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
