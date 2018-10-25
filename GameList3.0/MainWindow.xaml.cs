@@ -46,6 +46,29 @@ namespace GameListWPF
             InitializeComponent();
         }
 
-    
+        public void Load_Form1()
+        {
+            RemplirListUser();
+        }
+
+        private void Co_Button_Connexion_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("click sur connexion");
+        }
+
+        private void Co_Button_Inscription_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Co_TextBox_InputLogin_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Co_TextBox_InputMdp_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
