@@ -57,13 +57,22 @@ namespace GameListWPF
 
         private void Co_Button_Connexion_Click(object sender, RoutedEventArgs e)
         {
-            if (!(string.IsNullOrEmpty(Co_TextBox_InputLogin.Name))&& !(string.IsNullOrEmpty(Co_TextBox_InputMdp.Name)))
+            if ( ! ( (string.IsNullOrEmpty(Co_TextBox_InputLogin.Name)) && (string.IsNullOrEmpty(Co_TextBox_InputMdp.Name)) ) )
             {
-                Console.WriteLine("Vous êtes connecté");
+                if(Verif(listUsers, Co_TextBox_InputLogin.Name, Co_TextBox_InputMdp.Name) != -1)
+                {
+                    Console.WriteLine("Vous êtes connecté");
+                    Console.WriteLine(Verif(listUsers, Co_TextBox_InputLogin.Name, Co_TextBox_InputMdp.Name));
+                }
+                else
+                {
+                    Console.WriteLine("Erreur de connection");
+                }
+                
             }
             else
             {
-                Console.WriteLine("Problème de deconnection");
+                Console.WriteLine("Veuillez entrez vos identifiants");
             }
                 
         }
