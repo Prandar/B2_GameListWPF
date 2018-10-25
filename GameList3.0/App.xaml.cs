@@ -5,8 +5,9 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using itemList;
 
-namespace GameList3._0
+namespace GameListWPF
 {
     /// <summary>
     /// Logique d'interaction pour App.xaml

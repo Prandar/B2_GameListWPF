@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{3B13A22D-8618-47E6-91DF-3D45CF4A5987}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>GameList3._0</RootNamespace>
+    <RootNamespace>GameListWPF</RootNamespace>
     <AssemblyName>GameList3.0</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -93,6 +93,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\itemList\itemList.csproj">
+      <Project>{c5cb85cf-21b2-4654-87b1-e4f990e7fdfb}</Project>
+      <Name>itemList</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

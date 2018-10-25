@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameList3.0", "GameList3.0\GameList3.0.csproj", "{3B13A22D-8618-47E6-91DF-3D45CF4A5987}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameListWPF", "GameList3.0\GameListWPF.csproj", "{3B13A22D-8618-47E6-91DF-3D45CF4A5987}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "itemList", "itemList\itemList.csproj", "{C5CB85CF-21B2-4654-87B1-E4F990E7FDFB}"
 EndProject

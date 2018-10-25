@@ -12,8 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using itemList;
 
-namespace GameList3._0
+namespace GameListWPF
 {
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
