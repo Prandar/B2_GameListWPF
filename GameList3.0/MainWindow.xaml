@@ -7,8 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="51*"/>
+            <ColumnDefinition Width="24*"/>
+            <ColumnDefinition Width="322*"/>
+        </Grid.ColumnDefinitions>
 
-        <Canvas x:Name="MainWindow_Canvas_Co" Loaded="MainWindow_Canvas_Co_Loaded">
+        <Canvas x:Name="MainWindow_Canvas_Co" Loaded="MainWindow_Canvas_Co_Loaded" Grid.ColumnSpan="3" Margin="0,0,-0.4,0">
             <Label x:Name="Co_Label_TitreBienvenue" Content="Bienvenue sur GameList" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" Canvas.Left="298" Canvas.Top="32"/>
             <Label x:Name="Co_Label_Login" Content="Login" HorizontalAlignment="Left" Margin="256,128,0,0" VerticalAlignment="Top"/>
             <Label x:Name="Co_Label_Mdp" Content="Mot de passe" HorizontalAlignment="Left" Margin="256,160,0,0" VerticalAlignment="Top"/>
@@ -17,7 +22,7 @@
             <Button x:Name="Co_Button_Connexion" Content="Connexion" Canvas.Left="342" Canvas.Top="231" Width="75" Click="Co_Button_Connexion_Click"/>
             <Button x:Name="Co_Button_Inscription" Content="Inscription" Canvas.Left="342" Canvas.Top="282" Width="76" Click="Co_Button_Inscription_Click"/>
         </Canvas>
-<Canvas x:Name="MainWindow_Canva_Incrip" Visibility="Hidden">
+        <Canvas x:Name="MainWindow_Canva_Incrip" Visibility="Hidden" Grid.ColumnSpan="3" Margin="0,0,-0.4,0">
             <Label x:Name="Inscip_Label_TitreBienvenue" Content="Inscription" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" Canvas.Left="342" Canvas.Top="34"/>
             <Label x:Name="Inscrip_Label_Login" Content="Login" HorizontalAlignment="Left" Margin="256,128,0,0" VerticalAlignment="Top"/>
             <Label x:Name="Inscrip_Label_Mdp" Content="Mot de passe" HorizontalAlignment="Left" Margin="256,160,0,0" VerticalAlignment="Top"/>
@@ -27,5 +32,6 @@
             <TextBox x:Name="Inscrip_TextBox_InputMail" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="Co_TextBox_InputMdp_TextChanged" Canvas.Left="376" Canvas.Top="188"/>
             <Button x:Name="Inscrip_Button_Inscription" Content="Inscription" Canvas.Left="342" Canvas.Top="258" Width="76" Click="Inscrip_Button_Inscription_Click"/>
         </Canvas>
-<Canvas x:Name="MainWindow_Canvas_ChoixJeux" Margin="-10,0,9.6,0"></Canvas>    </Grid>
+        <Canvas x:Name="MainWindow_Canvas_ChoixJeux" Margin="-10,0,9.6,0" Grid.ColumnSpan="3"></Canvas>
+    </Grid>
 </Window>
