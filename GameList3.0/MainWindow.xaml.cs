@@ -50,7 +50,8 @@ namespace GameListWPF
 
         private void Co_Button_Inscription_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow_Canvas_Co.Visibility = Visibility.Hidden;
+            MainWindow_Canva_Incrip.Visibility = Visibility.Visible;
         }
 
         private void Co_Button_Connexion_Click(object sender, RoutedEventArgs e)
@@ -91,6 +92,21 @@ namespace GameListWPF
         private void MainWindow_Canvas_Co_Loaded(object sender, RoutedEventArgs e)
         {
             RemplirListUser();
+        }
+
+        private void Inscrip_Button_Inscription_Click(object sender, RoutedEventArgs e)
+        {
+            if (!((string.IsNullOrEmpty(Inscrip_TextBox_InputLogin.Text)) && (string.IsNullOrEmpty(Inscrip_TextBox_InputMdp.Text)) && ((string.IsNullOrEmpty(Inscrip_TextBox_InputMail.Text)))))
+            {
+                listUsers.Add(new Utilisateur(listUsers.Count, Inscrip_TextBox_InputLogin.Text, Inscrip_TextBox_InputMdp.Text, Inscrip_TextBox_InputMail.Text));
+                MainWindow_Canva_Incrip.Visibility = Visibility.Hidden;
+                MainWindow_Canvas_Co.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                Console.WriteLine("Veuillez entrez vos identifiants");
+            }
+
         }
     }
 }
