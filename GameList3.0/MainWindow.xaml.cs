@@ -26,7 +26,7 @@ namespace GameListWPF
         public void RemplirListUser()
         {
             Utilisateur UserYohan = new Utilisateur(0, "Yohan", "Admin", "yohan.angelini@epsi.fr");
-            Utilisateur UserRomain = new Utilisateur(0, "Romain", "password", "romain.prangere@epsi.fr");
+            Utilisateur UserRomain = new Utilisateur(1, "Romain", "password", "romain.prangere@epsi.fr");
             listUsers.Add(UserYohan);
             listUsers.Add(UserRomain);
         }
@@ -42,7 +42,7 @@ namespace GameListWPF
             return -1;
         }
         public MainWindow()
-        {²
+        {
             InitializeComponent();
         }
         private void Form1_Load(object sender, EventArgs e)
