@@ -26,9 +26,11 @@ namespace GameListWPF
         public void RemplirListUser()
         {
             Utilisateur UserYohan = new Utilisateur(0, "Yohan", "Admin", "yohan.angelini@epsi.fr");
-            Utilisateur UserRomain = new Utilisateur(0, "Romain", "password", "romain.prangere@epsi.fr");
+            Utilisateur UserRomain = new Utilisateur(1, "Romain", "password", "romain.prangere@epsi.fr");
             listUsers.Add(UserYohan);
             listUsers.Add(UserRomain);
+            Console.WriteLine(listUsers.Count);
+
         }
         public int Verif(List<Utilisateur> _listUser, string _login, string _mdp)
         {
@@ -45,10 +47,6 @@ namespace GameListWPF
         {
             InitializeComponent();
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            RemplirListUser();
-        }
 
         private void Co_Button_Inscription_Click(object sender, RoutedEventArgs e)
         {
@@ -57,12 +55,15 @@ namespace GameListWPF
 
         private void Co_Button_Connexion_Click(object sender, RoutedEventArgs e)
         {
-            if ( ! ( (string.IsNullOrEmpty(Co_TextBox_InputLogin.Name)) && (string.IsNullOrEmpty(Co_TextBox_InputMdp.Name)) ) )
+            Console.WriteLine(Co_TextBox_InputLogin.Text);
+            Console.WriteLine(Co_TextBox_InputMdp.Text);
+            Console.WriteLine(listUsers.Count);
+            if ( ! ( (string.IsNullOrEmpty(Co_TextBox_InputLogin.Text)) && (string.IsNullOrEmpty(Co_TextBox_InputMdp.Text)) ) )
             {
-                if(Verif(listUsers, Co_TextBox_InputLogin.Name, Co_TextBox_InputMdp.Name) != -1)
+                if(Verif(listUsers, Co_TextBox_InputLogin.Text, Co_TextBox_InputMdp.Text) != -1)
                 {
                     Console.WriteLine("Vous êtes connecté");
-                    Console.WriteLine(Verif(listUsers, Co_TextBox_InputLogin.Name, Co_TextBox_InputMdp.Name));
+                    Console.WriteLine(Verif(listUsers, Co_TextBox_InputLogin.Text, Co_TextBox_InputMdp.Text));
                 }
                 else
                 {
@@ -85,6 +86,11 @@ namespace GameListWPF
         private void Co_TextBox_InputMdp_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void MainWindow_Canvas_Co_Loaded(object sender, RoutedEventArgs e)
+        {
+            RemplirListUser();
         }
     }
 }

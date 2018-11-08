@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
 
-        <Canvas x:Name="MainWindow_Canvas_Co">
+        <Canvas x:Name="MainWindow_Canvas_Co" Loaded="MainWindow_Canvas_Co_Loaded">
             <Label x:Name="Co_Label_TitreBienvenue" Content="Bienvenue sur GameList" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" Canvas.Left="298" Canvas.Top="32"/>
             <Label x:Name="Co_Label_Login" Content="Login" HorizontalAlignment="Left" Margin="256,128,0,0" VerticalAlignment="Top"/>
             <Label x:Name="Co_Label_Mdp" Content="Mot de passe" HorizontalAlignment="Left" Margin="256,160,0,0" VerticalAlignment="Top"/>
