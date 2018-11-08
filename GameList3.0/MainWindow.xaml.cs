@@ -66,7 +66,8 @@ namespace GameListWPF
         private void Co_Button_Inscription_Click(object sender, RoutedEventArgs e)
         {
             MainWindow_Canvas_Co.Visibility = Visibility.Hidden;
-            MainWindow_Canva_Incrip.Visibility = Visibility.Visible;        }
+            MainWindow_Canva_Incrip.Visibility = Visibility.Visible;
+        }
 
         private void Co_Button_Connexion_Click(object sender, RoutedEventArgs e)
         {
@@ -82,7 +83,7 @@ namespace GameListWPF
                 }
                 else
                 {
-                    Console.WriteLine("Erreur de connection");
+                    Console.WriteLine("Erreur de connection !");
                 }
                 
             }
