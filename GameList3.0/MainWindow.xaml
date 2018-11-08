@@ -6,12 +6,10 @@
         xmlns:local="clr-namespace:GameListWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="720" Width="360" Loaded="Window_Loaded">
-    <Grid>
+  <Grid>
         <Label x:Name="MainWindow_Label_TitreBienvenue" Content="Bienvenue dans GameList" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" Canvas.Left="298" Canvas.Top="32"/>
-
         <Canvas x:Name="MainWindow_Canvas_ChoixJeux" Margin="0,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <Label x:Name="MainWindow_Label_LogIn" HorizontalAlignment="Center" Canvas.Left="50" Canvas.Top="50" Width="120" Visibility="Hidden" Content="Vide" Height="18"/>
-
         </Canvas>
-    </Grid>
+</Grid>
 </Window>
