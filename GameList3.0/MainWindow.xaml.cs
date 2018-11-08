@@ -22,6 +22,8 @@ namespace GameListWPF
     public partial class MainWindow : Window
     {
         List<Utilisateur> listUsers = new List<Utilisateur>();
+        List<Categorie> listCategories = new List<Categorie>();
+        List<Jeu> listJeux = new List<Jeu>();
 
         public void RemplirListUser()
         {
@@ -29,8 +31,21 @@ namespace GameListWPF
             Utilisateur UserRomain = new Utilisateur(1, "Romain", "password", "romain.prangere@epsi.fr");
             listUsers.Add(UserYohan);
             listUsers.Add(UserRomain);
-            Console.WriteLine(listUsers.Count);
+            //Console.WriteLine(listUsers.Count);
 
+        }
+
+        public void BullShit_achanger()
+        {
+            Categorie SandBox = new Categorie(0, "Sand Box");
+            Categorie Rpg = new Categorie(0, "RPG");
+            listCategories.Add(SandBox);
+            listCategories.Add(Rpg);
+
+            Jeu Minecraft = new Jeu(0, "Minecraft", 0, 2009, "Mojang");
+            Jeu TheWitcher3 = new Jeu(1, "The Wither 3 : Wild Hunt", 1, 2015, "CD Red Project");
+            listJeux.Add(Minecraft);
+            listJeux.Add(TheWitcher3);
         }
         public int Verif(List<Utilisateur> _listUser, string _login, string _mdp)
         {
@@ -50,14 +65,14 @@ namespace GameListWPF
 
         private void Co_Button_Inscription_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow_Canvas_Co.Opacity = 0;
         }
 
         private void Co_Button_Connexion_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(Co_TextBox_InputLogin.Text);
-            Console.WriteLine(Co_TextBox_InputMdp.Text);
-            Console.WriteLine(listUsers.Count);
+            //Console.WriteLine(Co_TextBox_InputLogin.Text);
+            //Console.WriteLine(Co_TextBox_InputMdp.Text);
+            //Console.WriteLine(listUsers.Count);
             if ( ! ( (string.IsNullOrEmpty(Co_TextBox_InputLogin.Text)) && (string.IsNullOrEmpty(Co_TextBox_InputMdp.Text)) ) )
             {
                 if(Verif(listUsers, Co_TextBox_InputLogin.Text, Co_TextBox_InputMdp.Text) != -1)
@@ -73,7 +88,7 @@ namespace GameListWPF
             }
             else
             {
-                Console.WriteLine("Veuillez entrez vos identifiants");
+                MessageBox.Show("Veuillez remplir les champs avec vos identifiants");
             }
                 
         }

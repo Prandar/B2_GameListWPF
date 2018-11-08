@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace itemList
 {
-    class ObjLieu
+    public class ObjLieu
     {
         #region Attributs
         private int id;

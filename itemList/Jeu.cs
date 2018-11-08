@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace itemList
 {
-    class Jeu
+    public class Jeu
     {
         #region Attributs
         private int id;

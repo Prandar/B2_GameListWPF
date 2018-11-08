@@ -17,5 +17,7 @@
             <Button x:Name="Co_Button_Connexion" Content="Connexion" Canvas.Left="342" Canvas.Top="231" Width="75" Click="Co_Button_Connexion_Click"/>
             <Button x:Name="Co_Button_Inscription" Content="Inscription" Canvas.Left="342" Canvas.Top="282" Width="76" Click="Co_Button_Inscription_Click"/>
         </Canvas>
+
+        <Canvas x:Name="MainWindow_Canvas_ChoixJeux" Margin="-10,0,9.6,0"></Canvas>
     </Grid>
 </Window>

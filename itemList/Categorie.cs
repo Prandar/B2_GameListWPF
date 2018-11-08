@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace itemList
 {
-    class Categorie
+    public class Categorie
     {
         #region Attributs
         private int id;
@@ -35,6 +35,13 @@ namespace itemList
         #endregion
 
         #region Constructor
+        public Categorie(int id, string description)
+        {
+            Id = id;
+            Id_jeu = 0;
+            Libelle = libelle;
+        }
+
         public Categorie(int id, int id_jeu, string description)
         {
             Id = id;
