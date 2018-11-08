@@ -44,7 +44,7 @@ namespace itemList
         #region AutreMethode
         public string Identite
         {
-            get { return string.Format("{0}, {1}, {2}, {3}, {4}", id, login, mdp, mail); }
+            get { return string.Format("{0}, {1}, {2}, {3}", id, login, mdp, mail); }
         }
         #endregion
 
