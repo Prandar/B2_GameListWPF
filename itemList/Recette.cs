@@ -10,6 +10,7 @@ namespace itemList
     {
         #region Attributs
         private int id;
+        private int id_objet;
         private int id_jeu;
         private string description;
         #endregion
@@ -19,6 +20,12 @@ namespace itemList
         {
             get { return id; }
             set { id = value; }
+        }
+
+        public int Id_objet
+        {
+            get { return id_objet; }
+            set { id_objet = value; }
         }
 
         public int Id_jeu
@@ -35,9 +42,10 @@ namespace itemList
         #endregion
 
         #region Constructor
-        public Recette(int id, int id_jeu, string description)
+        public Recette(int id, int id_objet, int id_jeu, string description)
         {
             Id = id;
+            Id = id_objet;
             Id_jeu = id_jeu;
             Description = description;
         }

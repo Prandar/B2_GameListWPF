@@ -12,7 +12,7 @@ namespace itemList
         private int id;
         private int id_objet;
         private int id_objet_nec;
-        private int quantite;
+        private double quantite;
         #endregion
 
         #region Méthode get/set
@@ -33,15 +33,24 @@ namespace itemList
             set { id_objet_nec = value; }
         }
 
-        public int Quantite
+        public double Quantite
         {
             get { return quantite; }
             set { quantite = value; }
         }
         #endregion
 
+        #region Propriété d'affichage
+        public string FicheDescriptive
+        {
+            get
+            { return string.Format("{0}, {1}, {2}, {3}", id, id_objet, id_objet_nec, Quantite); }
+
+        }
+        #endregion
+
         #region Construtor
-        public Necessite(int id, int id_objet, int int_objet_nec, int quantite)
+        public Necessite(int id, int id_objet, int id_objet_nec, double quantite)
         {
             Id = id;
             Id_objet = id_objet;

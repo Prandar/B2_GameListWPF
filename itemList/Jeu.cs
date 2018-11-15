@@ -14,7 +14,7 @@ namespace itemList
         private int id_cat;
         private int annee;
         private string studio;
-        private List<string> plateforme = new List<string>();
+        private readonly List<string> plateforme = new List<string>();
         #endregion
 
         #region Methode get/set
