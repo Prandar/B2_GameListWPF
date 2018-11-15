@@ -47,6 +47,17 @@ namespace itemList
         }
         #endregion
 
+        #region Propriété d'affichage
+        public string FicheDescriptive
+        {
+            get
+            {
+                return string.Format("{0}, {1}, {2}, {3}, {4}", id, nom, description, id_jeu, id_cat_objet);
+            }
+
+        }
+        #endregion
+
         #region Construtor
         public Objet(int id, string nom, string description, int id_jeu, int id_cat_objet)
         {
