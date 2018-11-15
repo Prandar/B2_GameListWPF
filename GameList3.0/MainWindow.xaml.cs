@@ -26,6 +26,7 @@ namespace GameListWPF
         List<Objet> listObjets = new List<Objet>();
         List<Lieu> listLieux = new List<Lieu>();
         List<ObjLieu> listObjLieux = new List<ObjLieu>();
+        bool isConnected = false;
 
         public void BullShit_achanger()
         {
@@ -71,6 +72,7 @@ namespace GameListWPF
         public MainWindow()
         {
             InitializeComponent();
+            BullShit_achanger();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -84,7 +86,40 @@ namespace GameListWPF
             {
                 MessageBox.Show("-!- Bonjour -!-");
             }
+        }
 
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void TesT_TesT_Click(object sender, RoutedEventArgs e)
+        {
+            isConnected = true;
+            //Console.WriteLine("ce test marche");
+            //Console.WriteLine(isConnected.ToString());
+
+            if (isConnected == true)
+            {
+                foreach (var jeu in listJeux)
+                {
+                    ListViewItem itemDeBase = new ListViewItem();
+                    itemDeBase.Background = Brushes.Green;
+                    itemDeBase.Foreground = Brushes.White;
+                    itemDeBase.FontSize = 25;
+                    itemDeBase.Content = jeu.Nom;
+                    MainWindow_ListView_listjeu.Items.Add(itemDeBase);
+                }
+            }
+        }
+
+        private void MainWindow_ListView_listjeu_GotFocus(object sender, RoutedEventArgs e)
+        {
+            foreach (ListViewItem item in MainWindow_ListView_listjeu.SelectedItems)
+            {
+                Console.WriteLine(item.Content.ToString());
+            }
+            Console.WriteLine("is that here");
         }
     }
 }
