@@ -179,11 +179,7 @@ namespace GameListWPF
                     itemDeBase.FontSize = 25;
                     itemDeBase.Content = jeu.Nom;
                     MainWindow_ListView_listjeu.Items.Add(itemDeBase);
-<<<<<<< .mine
                 }
-=======
-        }
->>>>>>> .theirs
 			}
 		}
 
@@ -203,4 +199,9 @@ namespace GameListWPF
             }
         }
 
-    }}
+        private void MainWindow_ListView_listjeu_GotFocus(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
+}
