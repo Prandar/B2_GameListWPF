@@ -12,12 +12,12 @@
             <Label x:Name="MainWindow_Label_LogIn" HorizontalAlignment="Center" Canvas.Left="50" Canvas.Top="50" Width="120" Visibility="Hidden" Content="Vide" Height="18"/>
             <Button x:Name="TesT_TesT" Content="Click" Canvas.Left="138" Canvas.Top="661" Width="76" Click="TesT_TesT_Click"/>
             <ListView x:Name="MainWindow_ListView_listjeu" Height="579" Canvas.Left="10" Canvas.Top="50" Width="334" SelectionChanged="ListView_SelectionChanged" GotFocus="MainWindow_ListView_listjeu_GotFocus">
-                <ListViewItem x:Name="MainWindow_ListItem_test" Background="Green" Foreground="White" FontFamily="Verdana" FontSize="30" FontWeight="Bold">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="coffie.jpg" Height="30"></Image>
-                        <TextBlock Text="Coffie"></TextBlock>
-                    </StackPanel>
-                </ListViewItem>
+                <!--<ListViewItem x:Name="MainWindow_ListItem_test" Background="Green" Foreground="White" FontFamily="Verdana" FontSize="30" FontWeight="Bold" Selected="MainWindow_ListItem_test_Selected">-->
+                    <!--<StackPanel Orientation="Horizontal">-->
+                        <!--<Image Source="coffie.jpg" Height="30"></Image>-->
+                        <!--<TextBlock Text="Coffie"></TextBlock>-->
+                    <!--</StackPanel>-->
+                <!--</ListViewItem>-->
             </ListView>
         </Canvas>
     </Grid>

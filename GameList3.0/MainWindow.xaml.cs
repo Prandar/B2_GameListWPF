@@ -212,12 +212,26 @@ namespace GameListWPF
         {
             //.WriteLine(MainWindow_ListView_listjeu.SelectedListViewItemCollection);
 
-            int i = 0;
-            foreach (ListViewItem item in MainWindow_ListView_listjeu.Items)
+            //int i = 0;
+            //foreach (ListViewItem item in MainWindow_ListView_listjeu.Items)
+            //{
+            //    Console.WriteLine(i);
+            //    i++;
+            //}
+            foreach (var objet in listObjets)
             {
-                Console.WriteLine(i);
-                i++;
+                ListViewItem itemDeBase = new ListViewItem();
+                itemDeBase.Background = Brushes.Red;
+                itemDeBase.Foreground = Brushes.White;
+                itemDeBase.FontSize = 25;
+                itemDeBase.Content = objet.Nom;
+                MainWindow_ListView_listjeu.Items.Add(itemDeBase);
             }
+        }
+
+        private void MainWindow_ListItem_test_Selected(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
