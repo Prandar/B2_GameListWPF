@@ -162,10 +162,21 @@ namespace GameListWPF
                 MessageBox.Show("-!- Bonjour -!-");
             }
         }
-        void connexion_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        void connexion_Closing(object sender, CancelEventArgs e)
         {
             var connexion = sender as Connexion;
-            //Information.Text = connexion.EnteredText.Text;
+            string Text = connexion.Co_TextBox_InputLogin.Text;
+            //MessageBox.Show(Text);
+
+            foreach (var jeu in listJeux)
+            {
+                ListViewItem itemDeBase = new ListViewItem();
+                itemDeBase.Background = Brushes.Green;
+                itemDeBase.Foreground = Brushes.White;
+                itemDeBase.FontSize = 25;
+                itemDeBase.Content = jeu.Nom;
+                MainWindow_ListView_listjeu.Items.Add(itemDeBase);
+            }
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
