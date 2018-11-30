@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Categorie.cs" />
     <Compile Include="Contenant.cs" />
+    <Compile Include="DataG.cs" />
     <Compile Include="Lieu.cs" />
     <Compile Include="Jeu.cs" />
     <Compile Include="Necessite.cs" />

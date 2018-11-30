@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,8 +31,9 @@ namespace GameListWPF
         List<ObjCont> listObjConts = new List<ObjCont>();
         List<Necessite> listNecessites = new List<Necessite>();
         List<Recette> listRecettes = new List<Recette>();
-        
-        bool isConnected = false;
+
+        public DataG donnees = new DataG(false);
+
 
         public void BullShit_achanger()
         {
@@ -151,12 +153,19 @@ namespace GameListWPF
             if (MainWindow_Label_LogIn.Content.ToString() == "Vide")
             {
                 Connexion connexion = new Connexion();
+                connexion.Closing += new CancelEventHandler(connexion_Closing);
                 connexion.Show();
+                //connexion.ShowDialog();
             }
             else
             {
                 MessageBox.Show("-!- Bonjour -!-");
             }
+        }
+        void connexion_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            var connexion = sender as Connexion;
+            //Information.Text = connexion.EnteredText.Text;
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -165,11 +174,11 @@ namespace GameListWPF
 
         private void TesT_TesT_Click(object sender, RoutedEventArgs e)
         {
-            isConnected = true;
+            donnees.IsConnected = true;
             //Console.WriteLine("ce test marche");
             //Console.WriteLine(isConnected.ToString());
 
-            if (isConnected == true)
+            if (donnees.IsConnected == true)
             {
                 foreach (var jeu in listJeux)
                 {
@@ -201,7 +210,14 @@ namespace GameListWPF
 
         private void MainWindow_ListView_listjeu_GotFocus(object sender, RoutedEventArgs e)
         {
+            //.WriteLine(MainWindow_ListView_listjeu.SelectedListViewItemCollection);
 
+            int i = 0;
+            foreach (ListViewItem item in MainWindow_ListView_listjeu.Items)
+            {
+                Console.WriteLine(i);
+                i++;
+            }
         }
     }
 }

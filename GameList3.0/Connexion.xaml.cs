@@ -23,8 +23,8 @@ namespace GameListWPF
         List<Utilisateur> listUsers = new List<Utilisateur>();
         public void RemplirListUser()
         {
-            Utilisateur UserYohan = new Utilisateur(0, "Yohan", "Admin", "yohan.angelini@epsi.fr");
-            Utilisateur UserRomain = new Utilisateur(1, "Romain", "password", "romain.prangere@epsi.fr");
+            Utilisateur UserYohan = new Utilisateur(0, "yohan", "admin", "yohan.angelini@epsi.fr");
+            Utilisateur UserRomain = new Utilisateur(1, "romain", "password", "romain.prangere@epsi.fr");
             listUsers.Add(UserYohan);
             listUsers.Add(UserRomain);
             //Console.WriteLine(listUsers.Count);
@@ -64,7 +64,8 @@ namespace GameListWPF
                 if (Verif(listUsers, Co_TextBox_InputLogin.Text, Co_TextBox_InputMdp.Text) != -1)
                 {
                     MessageBox.Show("Vous êtes connecté");
-                    this.Close();
+                    //MainWindow.MainWindow_ListView_listjeu.SetValue();
+                        this.Close();
                 }
                 else
                 {
