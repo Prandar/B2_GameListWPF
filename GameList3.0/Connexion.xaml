@@ -11,8 +11,8 @@
             <Label x:Name="Co_Label_TitreBienvenue" Content="Connectez Vous" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" Canvas.Left="314" Canvas.Top="32"/>
             <Label x:Name="Co_Label_Login" Content="Login" HorizontalAlignment="Left" Margin="256,128,0,0" VerticalAlignment="Top"/>
             <Label x:Name="Co_Label_Mdp" Content="Mot de passe" HorizontalAlignment="Left" Margin="256,160,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="Co_TextBox_InputLogin" HorizontalAlignment="Left" Height="23" Margin="376,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="Co_TextBox_InputLogin_TextChanged"/>
-            <TextBox x:Name="Co_TextBox_InputMdp" HorizontalAlignment="Left" Height="23" Margin="376,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="Co_TextBox_InputMdp_TextChanged"/>
+            <TextBox x:Name="Co_TextBox_InputLogin" HorizontalAlignment="Left" Height="23" Margin="376,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="Co_TextBox_InputLogin_TextChanged" Text="romain"/>
+            <TextBox x:Name="Co_TextBox_InputMdp" HorizontalAlignment="Left" Height="23" Margin="376,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="Co_TextBox_InputMdp_TextChanged" Text="password"/>
             <Button x:Name="Co_Button_Connexion" Content="Connexion" Canvas.Left="342" Canvas.Top="231" Width="75" Click="Co_Button_Connexion_Click"/>
             <Button x:Name="Co_Button_Inscription" Content="Inscription" Canvas.Left="342" Canvas.Top="282" Width="76" Click="Co_Button_Inscription_Click"/>
         </Canvas>

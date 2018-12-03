@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using itemList;
 
 namespace GameListWPF
 {
@@ -19,9 +20,29 @@ namespace GameListWPF
     /// </summary>
     public partial class ListWindow : Window
     {
+        public List<Objet>     listObjetsFin     = new List<Objet>();
+        public List<Necessite> listNecessitesFin = new List<Necessite>();
+
         public ListWindow()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("listObjetsFin : " + listObjetsFin.Count);
+
+            foreach (var item in listObjetsFin)
+            {
+                Console.WriteLine(item.Description);
+            }
+
+            Console.WriteLine("listNecessitesFin : " + listNecessitesFin.Count);
+
+            foreach (var item in listNecessitesFin)
+            {
+                Console.WriteLine(item.FicheDescriptive);
+            }
         }
     }
 }

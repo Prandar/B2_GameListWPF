@@ -33,6 +33,7 @@ namespace GameListWPF
         List<Recette> listRecettes = new List<Recette>();
 
         public DataG donnees = new DataG(false);
+        ListWindow listWindow = new ListWindow();
 
 
         public void BullShit_achanger()
@@ -52,7 +53,7 @@ namespace GameListWPF
             Objet Lingot_de_fer = new Objet(2, "Lingot de fer", "Les lingots de fer permettent la fabrication d'outils, armes et armures solides, permettant de miner certaines roches dure, comme le minerai de diamant)", 0, 0);
             Objet Bois_de_chene = new Objet(3, "Bois de chêne", "Ce bloc compose le tronc des chênes. Il peut être utiliser comme combustible dans les fours", 0, 0);
             Objet Planche_de_chene = new Objet(4, "PLanche de chêne", "Les planches de bois doivent être crafté à partir d'un tronc de chene. Il peut être utilisé comme combustible dans un four)", 0, 0);
-            Objet Baton = new Objet(5, "Baton", " Utilisé pour la création de nombreux objets et outils en bois", 0, 0);
+            Objet Baton = new Objet(5, "Baton", "Utilisé pour la création de nombreux objets et outils en bois", 0, 0);
             Objet Minerai_de_fer = new Objet(6, "Minerai de fer", "Bloc permettant après la cuisson dans un four four d'obtenir des lingots de fer.", 0, 0);
             listObjets.Add(Pioche_en_fer);
             listObjets.Add(Casque_en_fer);
@@ -168,13 +169,15 @@ namespace GameListWPF
             string Text = connexion.Co_TextBox_InputLogin.Text;
             //MessageBox.Show(Text);
 
+            MainWindow_ListView_listjeu.Items.Clear();
             foreach (var jeu in listJeux)
             {
                 ListViewItem itemDeBase = new ListViewItem();
-                itemDeBase.Background = Brushes.Green;
+                itemDeBase.Background = Brushes.ForestGreen;
                 itemDeBase.Foreground = Brushes.White;
                 itemDeBase.FontSize = 25;
                 itemDeBase.Content = jeu.Nom;
+                itemDeBase.AddHandler(Control.MouseDoubleClickEvent, new RoutedEventHandler(ItemListJeu_DoubleClick));
                 MainWindow_ListView_listjeu.Items.Add(itemDeBase);
             }
         }
@@ -182,26 +185,6 @@ namespace GameListWPF
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
         }
-
-        private void TesT_TesT_Click(object sender, RoutedEventArgs e)
-        {
-            donnees.IsConnected = true;
-            //Console.WriteLine("ce test marche");
-            //Console.WriteLine(isConnected.ToString());
-
-            if (donnees.IsConnected == true)
-            {
-                foreach (var jeu in listJeux)
-                {
-                    ListViewItem itemDeBase = new ListViewItem();
-                    itemDeBase.Background = Brushes.Green;
-                    itemDeBase.Foreground = Brushes.White;
-                    itemDeBase.FontSize = 25;
-                    itemDeBase.Content = jeu.Nom;
-                    MainWindow_ListView_listjeu.Items.Add(itemDeBase);
-                }
-			}
-		}
 
         static void AfficherObjet(List<Objet> objets)
         {
@@ -219,30 +202,159 @@ namespace GameListWPF
             }
         }
 
-        private void MainWindow_ListView_listjeu_GotFocus(object sender, RoutedEventArgs e)
-        {
-            //.WriteLine(MainWindow_ListView_listjeu.SelectedListViewItemCollection);
-
-            //int i = 0;
-            //foreach (ListViewItem item in MainWindow_ListView_listjeu.Items)
-            //{
-            //    Console.WriteLine(i);
-            //    i++;
-            //}
-            foreach (var objet in listObjets)
-            {
-                ListViewItem itemDeBase = new ListViewItem();
-                itemDeBase.Background = Brushes.Red;
-                itemDeBase.Foreground = Brushes.White;
-                itemDeBase.FontSize = 25;
-                itemDeBase.Content = objet.Nom;
-                MainWindow_ListView_listjeu.Items.Add(itemDeBase);
-            }
-        }
-
         private void MainWindow_ListItem_test_Selected(object sender, RoutedEventArgs e)
         {
 
         }
+
+        #region FonctionProg
+
+        public int GetIdJeuParNom (string nomDuJeu)
+        {
+            foreach (Jeu jeu_act in listJeux)
+            {
+                if ( jeu_act.Nom == nomDuJeu )
+                {
+                    return jeu_act.Id;
+                }
+            }
+            return -1;
+        }
+
+        public int GetIdObjetParNom(string nomDeObj)
+        {
+            foreach (Objet obj_act in listObjets)
+            {
+                if (obj_act.Nom == nomDeObj)
+                {
+                    return obj_act.Id;
+                }
+            }
+            return -1;
+        }
+
+        public string GetNomObjetParId(int IdObj)
+        {
+            foreach (Objet obj_act in listObjets)
+            {
+                if (obj_act.Id == IdObj)
+                {
+                    return obj_act.Nom;
+                }
+            }
+            return "VIDE";
+        }
+
+        protected void ItemListJeu_DoubleClick(object sender, RoutedEventArgs e)
+        {
+            DependencyObject depObj = e.OriginalSource as DependencyObject;
+            if (depObj != null)
+            {
+                // go up the visual hierarchy until we find the list view item the click came from  
+                // the click might have been on the grid or column headers so we need to cater for this  
+                DependencyObject current = depObj;
+                while (current != null && current != MainWindow_ListView_listjeu)
+                {
+                    ListViewItem lvi = current as ListViewItem;
+                    if (lvi != null)
+                    {
+                        // this is the list view item
+                        // do something with it here
+
+                        int idJeuRechercher = GetIdJeuParNom(lvi.Content.ToString());
+
+                        MainWindow_ListView_listObjet.Items.Clear();
+                        foreach (var objet in listObjets)
+                        {
+                            if (objet.Id_jeu == idJeuRechercher)
+                            {
+                                ListViewItem itemDeBase = new ListViewItem();
+                                itemDeBase.Background = Brushes.LightSeaGreen;
+                                itemDeBase.Foreground = Brushes.White;
+                                itemDeBase.FontSize = 25;
+                                itemDeBase.Content = objet.Nom;
+                                //itemDeBase.SetValue = objet.Id;
+
+                                itemDeBase.AddHandler(Control.MouseDoubleClickEvent, new RoutedEventHandler(ItemListOBJ_DoubleClick));
+                                MainWindow_ListView_listObjet.Items.Add(itemDeBase);
+                            }
+                        }
+                        // break out of loop  
+                        return;
+                    }
+                    current = VisualTreeHelper.GetParent(current);
+                }
+            }
+        }
+
+        protected void ItemListOBJ_DoubleClick(object sender, RoutedEventArgs e)
+        {
+            DependencyObject depObj = e.OriginalSource as DependencyObject;
+            if (depObj != null)
+            {
+                // go up the visual hierarchy until we find the list view item the click came from  
+                // the click might have been on the grid or column headers so we need to cater for this  
+                DependencyObject current = depObj;
+                while (current != null && current != MainWindow_ListView_listObjet)
+                {
+                    ListViewItem lvi = current as ListViewItem;
+                    if (lvi != null)
+                    {
+                        // this is the list view item  
+                        // do something with it here  
+
+                        int idObjRechercher = GetIdObjetParNom(lvi.Content.ToString());
+
+                        Console.WriteLine(listObjets[idObjRechercher].Description);
+
+
+                        listWindow.Show();
+
+                        //listWindow.ListWindow_ListView_listCraft.Items.Clear();
+
+                        foreach (var objet in listObjets)
+                        {
+                            if (objet.Id == idObjRechercher)
+                            {
+                                listWindow.listObjetsFin.Add(objet);
+                            }
+
+                        }
+
+                        foreach (var item in listNecessites)
+                        {
+                            if (item.Id_objet == idObjRechercher)
+                            {
+                                listWindow.listNecessitesFin.Add(item);
+                            }
+                        }
+
+                        //foreach (ListViewItem item in listWindow.ListWindow_ListView_listCraft.Items)
+                        //{
+                        //    if (GetNomObjetParId(objet.Id_objet_nec) == item.Content.ToString())
+                        //    {
+                        //        if (objet.Id_objet == idObjRechercher)
+                        //        {
+                        //            ListViewItem itemDeBase = new ListViewItem();
+                        //            itemDeBase.Background = Brushes.Aquamarine;
+                        //            itemDeBase.Foreground = Brushes.White;
+                        //            itemDeBase.FontSize = 25;
+                        //            itemDeBase.Content = GetNomObjetParId(objet.Id_objet_nec) + " x" + objet.Quantite;
+                        //            //itemDeBase.SetValue = objet.Id;
+
+                        //            //itemDeBase.AddHandler(Control.MouseDoubleClickEvent, new RoutedEventHandler(ItemListOBJ_DoubleClick));
+                        //            listWindow.ListWindow_ListView_listCraft.Items.Add(itemDeBase);
+                        //        }
+                        //    }
+
+                        //}
+                        // break out of loop  
+                        return;
+                    }
+                    current = VisualTreeHelper.GetParent(current);
+                }
+            }
+        }
+        #endregion
     }
 }
