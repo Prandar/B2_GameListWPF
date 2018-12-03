@@ -22,15 +22,15 @@ namespace GameListWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Categorie> listCategories = new List<Categorie>();
-        List<Jeu> listJeux = new List<Jeu>();
-        List<Objet> listObjets = new List<Objet>();
-        List<Lieu> listLieux = new List<Lieu>();
-        List<ObjLieu> listObjLieux = new List<ObjLieu>();
-        List<Contenant> listContenants = new List<Contenant>();
-        List<ObjCont> listObjConts = new List<ObjCont>();
-        List<Necessite> listNecessites = new List<Necessite>();
-        List<Recette> listRecettes = new List<Recette>();
+        public static List<Categorie> listCategories = new List<Categorie>();
+        public static List<Jeu> listJeux = new List<Jeu>();
+        public static List<Objet> listObjets = new List<Objet>();
+        public static List<Lieu> listLieux = new List<Lieu>();
+        public static List<ObjLieu> listObjLieux = new List<ObjLieu>();
+        public static List<Contenant> listContenants = new List<Contenant>();
+        public static List<ObjCont> listObjConts = new List<ObjCont>();
+        public static List<Necessite> listNecessites = new List<Necessite>();
+        public static List<Recette> listRecettes = new List<Recette>();
 
         public DataG donnees = new DataG(false);
         ListWindow listWindow = new ListWindow();
@@ -221,7 +221,7 @@ namespace GameListWPF
             return -1;
         }
 
-        public int GetIdObjetParNom(string nomDeObj)
+        public static int GetIdObjetParNom(string nomDeObj)
         {
             foreach (Objet obj_act in listObjets)
             {
@@ -233,7 +233,7 @@ namespace GameListWPF
             return -1;
         }
 
-        public string GetNomObjetParId(int IdObj)
+        public static string GetNomObjetParId(int IdObj)
         {
             foreach (Objet obj_act in listObjets)
             {
@@ -243,6 +243,27 @@ namespace GameListWPF
                 }
             }
             return "VIDE";
+        }
+
+        public static int GetIdNecessiteParNomObjet(string nomDeObj)
+        {
+            int idObj = -1;
+            foreach (Objet obj_act in listObjets)
+            {
+                if (obj_act.Nom == nomDeObj)
+                {
+                    idObj = obj_act.Id;
+                }
+            }
+
+            foreach (Necessite obj_act in listNecessites)
+            {
+                if (obj_act.Id_objet == idObj)
+                {
+                    return obj_act.Id;
+                }
+            }
+            return -1;
         }
 
         protected void ItemListJeu_DoubleClick(object sender, RoutedEventArgs e)
@@ -316,7 +337,8 @@ namespace GameListWPF
                         {
                             if (objet.Id == idObjRechercher)
                             {
-                                listWindow.listObjetsFin.Add(objet);
+                                Objet _objet = new Objet(listWindow.NbObjFIN, objet.Nom, objet.Description, objet.Id_jeu, objet.Id_cat_objet);
+                                listWindow.listObjetsFin.Add(_objet);
                             }
 
                         }
@@ -325,9 +347,14 @@ namespace GameListWPF
                         {
                             if (item.Id_objet == idObjRechercher)
                             {
-                                listWindow.listNecessitesFin.Add(item);
+                                Necessite _necessite = new Necessite(listWindow.NbNecFIN, listWindow.NbObjFIN, item.Id_objet_nec, item.Quantite);
+                                listWindow.listNecessitesFin.Add(_necessite);
                             }
                         }
+                        listWindow.NbObjFIN++;
+                        listWindow.NbNecFIN++;
+
+                        listWindow.AfficheListFin();
 
                         //foreach (ListViewItem item in listWindow.ListWindow_ListView_listCraft.Items)
                         //{

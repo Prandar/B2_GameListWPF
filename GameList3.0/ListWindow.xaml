@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameListWPF"
         mc:Ignorable="d"
-        Title="ListWindow" Height="700" Width="360">
+        Title="ListWindow" Height="700" Width="700">
     <Grid>
-        <ListView x:Name="ListWindow_ListView_listCraft" Margin="8,60,32,8">
-            
+        <ListView x:Name="ListWindow_ListView_listCraft" Margin="8,60,350,8">
         </ListView>
-        <Button Content="-" HorizontalAlignment="Left" Margin="327,60,0,0" VerticalAlignment="Top" Width="24" Click="Button_Click"/>
-
+        <ListView x:Name="ListWindow_ListView_listCraftN" Margin="360,60,8,8">
+        </ListView>
+        <Button Content="-" HorizontalAlignment="Left" Margin="336,10,0,0" VerticalAlignment="Top" Width="24" Click="Button_Click"/>
     </Grid>
 </Window>
