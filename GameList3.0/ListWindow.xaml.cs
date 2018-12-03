@@ -22,8 +22,10 @@ namespace GameListWPF
     {
         public List<Objet>     listObjetsFin     = new List<Objet>();
         public List<Necessite> listNecessitesFin = new List<Necessite>();
+        public List<Necessite> listNecessitesTT  = new List<Necessite>();
         public int NbObjFIN = 0;
         public int NbNecFIN = 0;
+        public int NbNecTT = 0;
 
         public ListWindow()
         {
@@ -45,6 +47,13 @@ namespace GameListWPF
             {
                 Console.WriteLine(item.FicheDescriptive);
             }
+
+            Console.WriteLine("listNecessitesTT : " + listNecessitesTT.Count);
+
+            foreach (var item in listNecessitesTT)
+            {
+                Console.WriteLine(item.FicheDescriptive);
+            }
         }
 
         #region FonctionP
@@ -61,9 +70,32 @@ namespace GameListWPF
                 itemDeBase.Content = item.Nom;
                 itemDeBase.AddHandler(Control.MouseDoubleClickEvent, new RoutedEventHandler(ListWindow_ListView_listCraft_DoubleClick));
                 ListWindow_ListView_listCraft.Items.Add(itemDeBase);
+
+                foreach (var item2 in listNecessitesFin)
+                {
+                    if (item.Id == item2.Id_objet)
+                    {
+                        ListViewItem itemDeBase2 = new ListViewItem();
+                        if (item2.Quantite <= 0)
+                        {
+                            itemDeBase2.Background = Brushes.PaleGoldenrod;
+                            itemDeBase2.Foreground = Brushes.White;
+                        }
+                        else
+                        {
+                            itemDeBase2.Background = Brushes.DarkOrange;
+                            itemDeBase2.Foreground = Brushes.White;
+                        }
+                        itemDeBase2.FontSize = 25;
+                        itemDeBase2.Content = MainWindow.GetNomObjetParId(item2.Id_objet_nec) + " x" + item2.Quantite;
+                        itemDeBase2.AddHandler(Control.MouseDoubleClickEvent, new RoutedEventHandler(ListWindow_ListView_listCraftN_DoubleClick));
+                        ListWindow_ListView_listCraft.Items.Add(itemDeBase2);
+                    }
+                }
             }
 
-            foreach (var item in listNecessitesFin)
+
+            foreach (var item in listNecessitesTT)
             {
                 ListViewItem itemDeBase = new ListViewItem();
                 if (item.Quantite <= 0)

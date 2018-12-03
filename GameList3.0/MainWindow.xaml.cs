@@ -349,10 +349,41 @@ namespace GameListWPF
                             {
                                 Necessite _necessite = new Necessite(listWindow.NbNecFIN, listWindow.NbObjFIN, item.Id_objet_nec, item.Quantite);
                                 listWindow.listNecessitesFin.Add(_necessite);
+
+                                if (listWindow.listNecessitesTT.Count > 0)
+                                {
+                                    int existe = 0;
+                                    foreach (var nec in listWindow.listNecessitesTT)
+                                    {
+                                        if (nec.Id_objet_nec == item.Id_objet_nec)
+                                        {
+                                            nec.Quantite += item.Quantite;
+                                        }
+                                        else
+                                        {
+                                            existe++;
+                                        }
+                                    }
+
+                                    if (existe == listWindow.listNecessitesTT.Count)
+                                    {
+                                        Necessite _necessiteTT = new Necessite(listWindow.NbNecTT, listWindow.NbObjFIN, item.Id_objet_nec, item.Quantite);
+                                        listWindow.listNecessitesTT.Add(_necessiteTT);
+                                    }
+                                    
+
+                                }
+                                else
+                                {
+                                    Necessite _necessiteTT = new Necessite(listWindow.NbNecTT, listWindow.NbObjFIN, item.Id_objet_nec, item.Quantite);
+                                    listWindow.listNecessitesTT.Add(_necessiteTT);
+                                }
+
                             }
                         }
                         listWindow.NbObjFIN++;
                         listWindow.NbNecFIN++;
+                        listWindow.NbNecTT++;
 
                         listWindow.AfficheListFin();
 
