@@ -76,16 +76,8 @@ namespace GameListWPF
                     if (item.Id == item2.Id_objet)
                     {
                         ListViewItem itemDeBase2 = new ListViewItem();
-                        if (item2.Quantite <= 0)
-                        {
-                            itemDeBase2.Background = Brushes.PaleGoldenrod;
-                            itemDeBase2.Foreground = Brushes.White;
-                        }
-                        else
-                        {
-                            itemDeBase2.Background = Brushes.DarkOrange;
-                            itemDeBase2.Foreground = Brushes.White;
-                        }
+                        itemDeBase2.Background = Brushes.PaleVioletRed;
+                        itemDeBase2.Foreground = Brushes.White;
                         itemDeBase2.FontSize = 25;
                         itemDeBase2.Content = MainWindow.GetNomObjetParId(item2.Id_objet_nec) + " x" + item2.Quantite;
                         itemDeBase2.AddHandler(Control.MouseDoubleClickEvent, new RoutedEventHandler(ListWindow_ListView_listCraftN_DoubleClick));
@@ -155,7 +147,7 @@ namespace GameListWPF
                         // this is the list view item  
                         // do something with it here  
                         string nom = lvi.Content.ToString();
-                        int id = MainWindow.GetIdNecessiteParNomObjet(nom);
+                        //int id = MainWindow.GetIdNecessiteParNomObjet(nom);
                         Console.WriteLine(lvi.Content.ToString());
                         // break out of loop  
                         return;
@@ -164,7 +156,6 @@ namespace GameListWPF
                 }
             }
         }
-
         #endregion
     }
 }
